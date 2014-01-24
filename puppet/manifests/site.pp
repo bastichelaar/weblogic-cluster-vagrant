@@ -35,7 +35,7 @@ class os {
 
   $default_params = {}
   $host_instances = hiera('hosts', [])
-  create_resources('host',$host_instances, $default_params)
+  create_resources('host', hiera('hosts', []), $default_params)
 
   exec { "create swap file":
     command => "/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=8192",
@@ -171,9 +171,9 @@ class java {
 
   include jdk7
 
-  jdk7::install7{ 'jdk1.7.0_45':
-      version              => "7u45" , 
-      fullVersion          => "jdk1.7.0_45",
+  jdk7::install7{ 'jdk1.7.0_51':
+      version              => "7u51" , 
+      fullVersion          => "jdk1.7.0_51",
       alternativesPriority => 18000, 
       x64                  => true,
       downloadDir          => hiera('wls_download_dir'),
@@ -218,17 +218,17 @@ class wls1212{
      createUser   => false, 
   }
 
-  wls::opatch{'16175470_wls_patch':
-    oracleProductHome      => $osMdwHome,
-    fullJDKName            => $jdkWls12gJDK,
-    patchId                => '16175470',
-    patchFile              => 'p16175470_121200_Generic.zip',
-    user                   => $user,
-    group                  => $group,
-    downloadDir            => $downloadDir,
-    puppetDownloadMntPoint => $puppetDownloadMntPoint,
-    require                => Wls::Installwls['wls12.1.2'],
-  }
+  #wls::opatch{'16175470_wls_patch':
+  #  oracleProductHome      => $osMdwHome,
+  #  fullJDKName            => $jdkWls12gJDK,
+  #  patchId                => '16175470',
+  #  patchFile              => 'p16175470_121200_Generic.zip',
+  #  user                   => $user,
+  #  group                  => $group,
+  #  downloadDir            => $downloadDir,
+  #  puppetDownloadMntPoint => $puppetDownloadMntPoint,
+  #  require                => Wls::Installwls['wls12.1.2'],
+  #}
 
 
 }

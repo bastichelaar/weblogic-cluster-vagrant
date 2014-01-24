@@ -17,7 +17,7 @@ hosts:
     host_aliases:      - 'node2.example.com'
                        - 'node2'
 
-wls_jdk_version:          'jdk1.7.0_45'
+wls_jdk_version:          'jdk1.7.0_51'
 wls_user_config_dir:      '/home/oracle'
 
 # global WebLogic vars

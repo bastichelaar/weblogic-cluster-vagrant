@@ -164,9 +164,9 @@ class java {
 
   include jdk7
 
-  jdk7::install7{ 'jdk1.7.0_45':
-      version              => "7u45" , 
-      fullVersion          => "jdk1.7.0_45",
+  jdk7::install7{ 'jdk1.7.0_51':
+      version              => "7u51" , 
+      fullVersion          => "jdk1.7.0_51",
       alternativesPriority => 18000, 
       x64                  => true,
       downloadDir          => hiera('wls_download_dir'),
@@ -208,17 +208,17 @@ class wls1212{
     createUser             => false, 
   }
 
-  wls::opatch{'16175470_wls_patch':
-    oracleProductHome      => $osMdwHome,
-    fullJDKName            => $jdkWls12gJDK,
-    patchId                => '16175470',
-    patchFile              => 'p16175470_121200_Generic.zip',
-    user                   => $user,
-    group                  => $group,
-    downloadDir            => $downloadDir,
-    puppetDownloadMntPoint => $puppetDownloadMntPoint,
-    require                => Wls::Installwls['wls12.1.2'],
-  }
+  #wls::opatch{'16175470_wls_patch':
+  #  oracleProductHome      => $osMdwHome,
+  #  fullJDKName            => $jdkWls12gJDK,
+  #  patchId                => '16175470',
+  #  patchFile              => 'p16175470_121200_Generic.zip',
+  #  user                   => $user,
+  #  group                  => $group,
+  #  downloadDir            => $downloadDir,
+  #  puppetDownloadMntPoint => $puppetDownloadMntPoint,
+  #  require                => Wls::Installwls['wls12.1.2'],
+  #}
 
 }
 

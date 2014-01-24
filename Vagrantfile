@@ -8,7 +8,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "admin" , primary: true do |admin|
     admin.vm.box = "centos-6.5-x86_64"
-    #admin.vm.box_url ="/Users/edwin/Downloads/centos-6.5-x86_64.box"
     admin.vm.box_url = "https://dl.dropboxusercontent.com/s/np39xdpw05wfmv4/centos-6.5-x86_64.box"
 
     admin.vm.hostname = "admin.example.com"
@@ -41,11 +40,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "node1" do |node1|
 
     node1.vm.box = "centos-6.5-x86_64"
-    #node1.vm.box_url ="/Users/edwin/Downloads/centos-6.5-x86_64.box"
     node1.vm.box_url = "https://dl.dropboxusercontent.com/s/np39xdpw05wfmv4/centos-6.5-x86_64.box"
   
     node1.vm.hostname = "node1.example.com"
     node1.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=777"]
+
     node1.vm.network :private_network, ip: "10.10.10.100"
   
     node1.vm.provider :virtualbox do |vb|
@@ -73,11 +72,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "node2" do |node2|
 
     node2.vm.box = "centos-6.5-x86_64"
-    #node2.vm.box_url ="/Users/edwin/Downloads/centos-6.5-x86_64.box"
     node2.vm.box_url = "https://dl.dropboxusercontent.com/s/np39xdpw05wfmv4/centos-6.5-x86_64.box"
 
     node2.vm.hostname = "node2.example.com"
     node2.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=777"]
+
     node2.vm.network :private_network, ip: "10.10.10.200", auto_correct: true
   
     node2.vm.provider :virtualbox do |vb|

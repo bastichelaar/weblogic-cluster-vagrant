@@ -31,7 +31,7 @@ define jdk7::install7 (
   case $::kernel {
     Linux   : {
       $installVersion = 'linux'
-      $installExtension = '.tar.gz'
+      $installExtension = '.gz'
       $path = '/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:'
       $user = 'root'
       $group = 'root'
